@@ -4,3 +4,4 @@
 1. Make formatting more consistent
 1. Go back over online book links and add that info
 1. Source links
+1. Format the code on jsp.md

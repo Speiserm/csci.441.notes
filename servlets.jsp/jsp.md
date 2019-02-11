@@ -94,3 +94,32 @@ This gets evaluated and inserted into the servlet's output and sent to the clien
 
 ## JSP Expressions
 JSP expressions are what you'll be using most frequently. You can also use XML-compatible syntax, which is formatted like this: `<jsp:expression>Java Expression</jsp:expression>` but you must use it for the entire page if you use it once.
+
+Here's what translating JSP into it's servlet code looks like:
+
+Original JSP | Reslting servlet code
+--- | ---
+`<%= Math.random() %>` | `out.println(Math.random());`
+
+## Predefined variables
+
+request | response | out | session | application
+--- | --- | --- | --- | ---
+The HttpServletRequest (The first argument to service  doGet) | The HttpServletResponse (The second argument to service doGet) | The writer, use to send output to the client | The HTTP Session associated with the request | The ServletContext (for sharing data) as obtained via getServletContext().
+
+## A comparison between Servlets and jsp
+Here's the code to read three paramaneters and output them into an HTML page with just a servlet:
+
+```
+public class ThreeParams extends HttpServlet {
+  public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    out.println(docType +"<html>\n"+
+    "<head><title>"+title + "</title></head>\n"+
+    "<body">\n" +"<h1>" + title + "</h1>\n" +"<ul>\n" + "<li>param1: " + request.getparameter("param1") + "</li>\n" +" <li>param2: " + request.getparameter("param2") + "</li>\n" +" <li>param3: " + request.getparameter("param3") + "</li>\n" +"</ul>\n" +"</body></html>");}}
+```
+
+And here's code that will produce a similar page but with JSP:
+
+```html
+<html><head><title>reading three request parameters</title></head><body><h1>Reading Three Request Parameters with<br> &lt;%= java expression %&gt;</h1><ul><li><b>param1</b>: <%= request.getparameter("param1") %> </li><li><b>param2</b>: <%= request.getparameter("param2") %> </li><li><b>param3</b>: <%= request.getparameter("param3") %> </li></ul><!-- Expressions are evaluated and inserted into the servlet's output --></body></html>
+```
