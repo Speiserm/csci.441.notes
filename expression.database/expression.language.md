@@ -11,36 +11,36 @@
 
 ### Advantages of Expression Language
 
-- Concise access to stored objects.
+- __Concise access to stored objects.__
   - To output a __Scoped Variable__ (An object stored with setAttribute in the PageContext, HttpServletRequest, HttpSession, or ServletContext) named saleItem, you would use `${saleItem}`.
 
 
-- Shorthand notation for bean properties.
+- __Shorthand notation for bean properties.__
   - To output the companyName property (i.e., result of the getCompanyName method) of a scoped variable named company, you would use `${company.companyName}`.
 
   - To access the firstName property of the president property of a scoped variable named company, you would use `${company.president.firstName}`.
 
-- Simple access to collection elements.
+- __Simple access to collection elements.__
   - To access an element of an array, List, or Map, you would use `${variable[indexOrKey]}`.
 
 
-- Succinct access to request parameters, cookies, and other request data.
+- __Succinct access to request parameters, cookies, and other request data.__
   - To access the standard types of request data, you can use one of several predefined implicit objects.
 
 
-- A small but useful set of simple operators.
+- __A small but useful set of simple operators.__
   - To manipulate objects within EL expressions, you can use any of several arithmetic, relational, logical, or empty-testing operators.
 
 
-- Conditional output.
+- __Conditional output.__
   - To choose among output options, you do not have to resort to Java scripting elements. Instead, you can use `${test ? option1:option2}`.
 
 
-- Automatic type conversion.
+- __Automatic type conversion.__
   - The expression language removes the need for most typecasts and for much of the code that parses strings as numbers.
 
 
-- Empty values instead of error messages.
+- __Empty values instead of error messages.__
   - In most cases, missing values or NullPointerExceptions result in empty strings, not thrown exceptions.
 
 <a name="invoking"></a>
