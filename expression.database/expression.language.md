@@ -3,9 +3,9 @@
 ### Test points:
 #### [1. How to invoke the EL](#invoking)
 
-#### 2. Scoped Variables / Search Order
+#### [2. Scoped Variables / Search Order](#scoped)
 
-#### 3. Equivalent Forms (e.g. expressions, scriptlets, declarations)
+#### [3. Equivalent Forms](#equivalent)
 
 ---
 
@@ -69,3 +69,22 @@ To get ${ in the page output, use `\${` in the JSP page.
 To get a single quote within an EL expression, use `\'`.
 
 To get a double quote within an EL expression, use `\"`.
+
+<a name="scoped"></a>
+## Accessing Scoped Variables
+`${varName}` is used to search the PageContext, the HttpServletRequest, the HttpSession, and the ServletContext, __in that order__, and output the object with that attribute name.
+* PageContext does not apply with MVC.
+
+<a name="equivalent"></a>
+Equivalent Forms:
+- `${name}`
+- `<%=pageContext.findAttribute("name") %>`
+- ```html
+<jsp:useBean id="name"
+    type="somePackage.SomeClass"
+    scope="...">
+<%=name %>
+```
+---
+## Examples
+Coming soon...
