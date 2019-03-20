@@ -1,4 +1,4 @@
-## JQuery
+## HTTP
 
 ### Test points:
 #### [1. What is HTTP?](#http)
