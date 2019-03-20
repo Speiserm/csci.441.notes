@@ -7,3 +7,4 @@
 1. Format the code on jsp.md
 1. Add a better description to expression.language.md
 1. Add examples to expression.language.md
+1. Finish jQuery
