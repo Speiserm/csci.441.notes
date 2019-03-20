@@ -77,9 +77,11 @@ To get a double quote within an EL expression, use `\"`.
 
 <a name="equivalent"></a>
 Equivalent Forms:
-- `${name}`
-- `<%=pageContext.findAttribute("name") %>`
-- ```html
+
+`${name}`
+
+`<%=pageContext.findAttribute("name") %>`
+```
 <jsp:useBean id="name"
     type="somePackage.SomeClass"
     scope="...">
