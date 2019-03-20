@@ -83,17 +83,42 @@ To get a double quote within an EL expression, use `\"`.
 * PageContext does not apply with MVC.
 
 <a name="equivalent"></a>
-Equivalent Forms:
+### Equivalent Forms:
 
-`${name}`
+#### JSP Scripting Elements: Scriptlets, expressions, and declarations
 
-`<%=pageContext.findAttribute("name") %>`
+
+1. __Expressions__
+
+Expressions are formatted like `<%=expression %>`. These are evaluated, converted to a string, and then placed directly into the output. For example, `Current time: <%=new java.util.Date() %>` would return the text `Current time: 11:44` or whatever time it currently is. You also have access to the following predefined variables:
+
+- `request` - The HttpServletRequest.
+- `response` - The HttpServletResponse.
+- `session` - The HttpSession associated with the request.
+- `out` - The PrintWriter, used to send output to the client.
+
+
+2. __Scriptlets__
+
+Scriptlets are formatted like `<% code %>`. They're used to do more complex things than a single simple expression. Scriptlets insert code into the service() method of the generated servlet. Scriptlets can access the same automatically defined variables as expressions (request, response, session, and out). For example,
+```java
+<%
+  String name = request.getParameter("name");
+  out.println("name:" + name);
+%>
 ```
-<jsp:useBean id="name"
-    type="somePackage.SomeClass"
-    scope="...">
-<%=name %>
+
+3. __Declarations__
+
+Declarations are formatted like `<%! code %>`. They can be used to define methods or fields that then get inserted into the main body of the servlet class, outside of the service method processing the request. For example,
+```java
+<%!
+  public int getValue(){
+    return 69420;
+  }
+%>
 ```
+
 ---
 ### Examples
 Coming soon...
