@@ -8,6 +8,13 @@
 #### [3. Equivalent Forms](#equivalent)
 
 ---
+### What is Expression Language?
+The JSP 2.0 EL provides concise, easy-to-read access to:
+- Bean properties
+- Collection elements
+- Standard HTTP elements such as request parameters, request headers, and cookies
+
+The JSP 2.0 EL works best with MVC. You should only use it to output values created by separate Java code, and resist using it for business logic.
 
 ### Advantages of Expression Language
 
@@ -63,7 +70,7 @@ You can use multiple expressions (possibly intermixed with static text) and the 
 <jsp:include page="${expr1}blah ${expr2}"/>
 ```
 
-## Escaping special characters
+### Escaping special characters
 To get ${ in the page output, use `\${` in the JSP page.
 
 To get a single quote within an EL expression, use `\'`.
@@ -71,7 +78,7 @@ To get a single quote within an EL expression, use `\'`.
 To get a double quote within an EL expression, use `\"`.
 
 <a name="scoped"></a>
-## Accessing Scoped Variables
+### Accessing Scoped Variables
 `${varName}` is used to search the PageContext, the HttpServletRequest, the HttpSession, and the ServletContext, __in that order__, and output the object with that attribute name.
 * PageContext does not apply with MVC.
 
@@ -88,5 +95,5 @@ Equivalent Forms:
 <%=name %>
 ```
 ---
-## Examples
+### Examples
 Coming soon...
